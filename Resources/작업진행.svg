@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 166" width="36" height="166">
+  <defs>
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8F5E9">
+        <animate attributeName="offset" values="-1; 1" dur="2s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#A5D6A7">
+        <animate attributeName="offset" values="0; 2" dur="2s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#E8F5E9">
+        <animate attributeName="offset" values="1; 3" dur="2s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="32" height="162" rx="16" ry="16" fill="url(#flowGrad)" stroke="#4CAF50" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite" />
+  </rect>
+</svg>
