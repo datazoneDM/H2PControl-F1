@@ -67,10 +67,3 @@ Library: iText® 7 Core
 License: GNU Affero General Public License v3.0 (AGPLv3)
 
 Official Website: https://itextpdf.com
-
-Plaintext
-Copyright (C) 2000-2021 iText Group NV. All Rights Reserved.
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
