@@ -116,12 +116,12 @@ namespace H2PControl
 
             string 컴이름 = SystemInformation.ComputerName.ToLower();
             string 고객사 = 고객사선택("", 컴이름);
-            if (고객사 == "KB2") chk싱글처리.Checked = true;
-            if (컴이름 == "kbmain") 분산메인컴 = true;
+            if (고객사 == "CCK2") chk싱글처리.Checked = true;
+            if (컴이름 == "Kmain") 분산메인컴 = true;
 
             ////////테스트
             ////chk싱글처리.Checked = true;
-            ////if (컴이름 == "kbmain" || 컴이름 == "dzmain") 분산메인컴 = true;
+            ////if (컴이름 == "Kmain" || 컴이름 == "dzmain") 분산메인컴 = true;
         }
 
         private void H2PControl_Load(object sender, EventArgs e)
@@ -490,12 +490,12 @@ namespace H2PControl
             //저장.사용컴퓨터
             switch (현재컴)
             {
-                case "kbmain":
-                case "kbsub1":
-                case "kbsub2":
-                case "kbsub3":
-                case "kbsub4":
-                case "kbsub5":
+                case "Kmain":
+                case "Ksub1":
+                case "Ksub2":
+                case "Ksub3":
+                case "Ksub4":
+                case "Ksub5":
                     선택고객사 = "CCK2";
                     break;
             }
@@ -1002,8 +1002,8 @@ namespace H2PControl
             string 임시컴 = SystemInformation.ComputerName.ToLower();
             if (파라메타 == "앱실행_싱글처리")
             {
-                if (임시컴.StartsWith("kbsub"))
-                    저장.사용컴퓨터 = "kbmain";
+                if (임시컴.StartsWith("Ksub"))
+                    저장.사용컴퓨터 = "Kmain";
                 else if (임시컴.StartsWith("sub"))
                     저장.사용컴퓨터 = "main";
                 else if (임시컴.StartsWith("dzsub"))
@@ -1376,7 +1376,7 @@ namespace H2PControl
 
 
                             // =========================================================================
-                            //  먼저 들어온 파일 우선 정렬(FIFO) 및 kbmain 96개 제한 로직
+                            //  먼저 들어온 파일 우선 정렬(FIFO) 및 Kmain 96개 제한 로직
                             // =========================================================================
                             // 1. 파일을 생성 시간(먼저 들어온 순서) 기준으로 오름차순 정렬합니다.
                             var 대상파일목록 = 감시폴더.GetFiles(필터)
@@ -1649,7 +1649,7 @@ namespace H2PControl
                                 int 병렬컴cnt = 1;
                                 switch (저장.사용컴퓨터.ToLower())
                                 {
-                                    case "kbmain" :
+                                    case "Kmain" :
                                         병렬컴cnt = 6;
                                         break;
                                     case "main":
@@ -3750,7 +3750,7 @@ namespace H2PControl
                     DateTime 시작시간 = kvp.Value;
                     TimeSpan 경과 = DateTime.Now - 시작시간;
 
-                    string 번호문자열 = 컴구분.Replace("sub", "").Replace("kbsub", "");
+                    string 번호문자열 = 컴구분.Replace("sub", "").Replace("Ksub", "");
 
                     if (int.TryParse(번호문자열, out int 인덱스))
                     {
@@ -3910,7 +3910,7 @@ namespace H2PControl
                             시스템상태업데이트(0); // 0단계: 접속 완료
                             실행여부 = "성공";
 
-                            if (chk싱글처리.Checked && SystemInformation.ComputerName.ToLower() == "kbmain")
+                            if (chk싱글처리.Checked && SystemInformation.ComputerName.ToLower() == "Kmain")
                             {
                                 this.Invoke(new Action(() =>
                                 {
@@ -4528,7 +4528,7 @@ namespace H2PControl
                                     서브컴할당건수.Remove(hub.UserName);
                                     서브컴할당타임아웃.Remove(hub.UserName);
 
-                                    string 번호문자열 = hub.UserName.Replace("sub", "").Replace("kbsub", "");
+                                    string 번호문자열 = hub.UserName.Replace("sub", "").Replace("Ksub", "");
                                     if (int.TryParse(번호문자열, out int 인덱스))
                                     {
                                         if (인덱스 >= 1 && 인덱스 < 타일.Length && 타일[인덱스] != null)
@@ -4884,7 +4884,7 @@ namespace H2PControl
                         서브컴할당타임아웃.Remove(끊긴컴);
 
                         // 2. 해당 서브컴의 대시보드 인덱스 추출 (sub1 -> 1)
-                        string 번호문자열 = 끊긴컴.Replace("sub", "").Replace("kbsub", "");
+                        string 번호문자열 = 끊긴컴.Replace("sub", "").Replace("Ksub", "");
                         if (int.TryParse(번호문자열, out int 인덱스))
                         {
                             if (인덱스 >= 1 && 인덱스 < 타일.Length && 타일[인덱스] != null)
