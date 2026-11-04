@@ -275,7 +275,7 @@ namespace H2PControl
                     int 타임아웃분 = 9; // 기본 타임아웃
                     int 총할당건수 = 16; // 기본 할당 건수
 
-                    if (고객사 == "KB2")
+                    if (고객사 == "CCK2")
                     {
                         if (상태.groupKey.StartsWith("[M"))
                         {
@@ -300,7 +300,7 @@ namespace H2PControl
                         글로벌동적타임아웃 = 720;
 
                         // 총할당건수(또는 남은건수)에 따라 타임아웃 시간(분) 정밀 재배정
-                        if (고객사 == "KB2")
+                        if (고객사 == "CCK2")
                         {
                             // ★ [변경] 이 부분을 아래 코드로 덮어쓰세요!
                             if (총할당건수 <= 4) 타임아웃분 = 15;      // 12분(F1대기) + 3분(여유)
@@ -309,7 +309,7 @@ namespace H2PControl
                             else 타임아웃분 = 30; // 최대 16건일 때 30분 마지노선
                         }
 
-                        TimeSpan 타임아웃시간 = (고객사 == "KB2") ? TimeSpan.FromMinutes(타임아웃분) : Timeout.InfiniteTimeSpan;
+                        TimeSpan 타임아웃시간 = (고객사 == "CCK2") ? TimeSpan.FromMinutes(타임아웃분) : Timeout.InfiniteTimeSpan;
 
                         using (CancellationTokenSource cts = new CancellationTokenSource(타임아웃시간))
                         {
@@ -496,7 +496,7 @@ namespace H2PControl
                 case "kbsub3":
                 case "kbsub4":
                 case "kbsub5":
-                    선택고객사 = "KB2";
+                    선택고객사 = "CCK2";
                     break;
             }
             return 선택고객사;
@@ -629,7 +629,7 @@ namespace H2PControl
                                 List<FileInfo> 대상파일들 = new List<FileInfo>();
 
                                 // 고객사가 KB로 고정되어 있으므로 루프 없이 다이렉트로 경로 조립
-                                string 타겟폴더 = System.IO.Path.Combine(완료최상위폴더, "KB", 연월, 일);
+                                string 타겟폴더 = System.IO.Path.Combine(완료최상위폴더, "CCK", 연월, 일);
 
                                 if (Directory.Exists(타겟폴더))
                                 {
@@ -686,7 +686,7 @@ namespace H2PControl
                                 if (구출데이터.Length > 0)
                                 {
                                     int hashIndex = backupFile.Name.IndexOf('#');
-                                    string 고객사 = "KB"; // 기본값
+                                    string 고객사 = "CCK"; // 기본값
                                     if (hashIndex != -1 && backupFile.Name.Length > hashIndex + 3)
                                         고객사 = backupFile.Name.Substring(hashIndex + 1, 2);
 
@@ -947,7 +947,7 @@ namespace H2PControl
                             if (구출데이터.Length > 0)
                             {
                                 int hashIndex = backupFile.Name.IndexOf('#');
-                                string 고객사 = "KB"; // 기본값
+                                string 고객사 = "CCK"; // 기본값
                                 if (hashIndex != -1 && backupFile.Name.Length > hashIndex + 3)
                                     고객사 = backupFile.Name.Substring(hashIndex + 1, 2);
 
@@ -1433,7 +1433,7 @@ namespace H2PControl
                                 {
                                     tmp작업파일.Add(파일.FullName);
 
-                                    if (상태.고객사 == "DB") // DB손해보험 파일명을 기본키값으로 사용해서 Merge를 하지 않는다.(모바일)
+                                    if (상태.고객사 == "CCD") // DB손해보험 파일명을 기본키값으로 사용해서 Merge를 하지 않는다.(모바일)
                                         break;
                                 }
                             }
@@ -3131,7 +3131,7 @@ namespace H2PControl
         //                    이전세션 = 세션;
         //                }
 
-        //                if (상태.고객사 == "KB")
+        //                if (상태.고객사 == "CCK")
         //                {
         //                    PdfFont 나눔바른고딕 = PdfFontFactory.CreateFont(@"c:\Easy약관Plus\program\Font\NanumBarunGothic.ttf", PdfEncodings.IDENTITY_H);
         //                    Document docw = new Document(약관DOC);
@@ -4855,7 +4855,7 @@ namespace H2PControl
                             if (구출데이터.Length > 0)
                             {
                                 int hashIndex = backupFile.Name.IndexOf('#');
-                                string 고객사 = "KB";
+                                string 고객사 = "CCK";
                                 if (hashIndex != -1 && backupFile.Name.Length > hashIndex + 3)
                                     고객사 = backupFile.Name.Substring(hashIndex + 1, 2);
 
@@ -5339,7 +5339,7 @@ namespace H2PControl
                     // [1부] 일반 데이터 파일 정리 (기준: 3일 경과)
                     // ==========================================================
                     DateTime 데이터기준일 = DateTime.Now.Date.AddDays(-3);
-                    List<string> 거래처목록 = new List<string>() { "DZ", "AI", "KB", "DB" };
+                    List<string> 거래처목록 = new List<string>() { "CCZ", "CCA", "CCK", "CCD" };
                     List<string> 대상최상위폴더들 = new List<string>();
 
                     foreach (string 거래처 in 거래처목록)

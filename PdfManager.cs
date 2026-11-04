@@ -120,7 +120,7 @@ namespace H2PControl
                             이전세션 = 세션;
                         }
 
-                        if (상태.고객사 == "KB")
+                        if (상태.고객사 == "CCK")
                         {
                             PdfFont 나눔바른고딕 = PdfFontFactory.CreateFont(@"c:\Easy약관Plus\program\Font\NanumBarunGothic.ttf", PdfEncodings.IDENTITY_H);
                             Document docw = new Document(약관DOC);
